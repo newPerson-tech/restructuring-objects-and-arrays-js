@@ -180,3 +180,8 @@ const summary = `New book here - ${title} and it is a ${pages}-page long book, w
   publicationDate.split("-")[0]
 }`;
 summary;
+
+//Ternary operator
+
+const pagesRange = pages > 100 ? "over a thousand" : "less then 1000";
+pagesRange;
