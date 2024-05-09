@@ -185,3 +185,11 @@ summary;
 
 const pagesRange = pages > 100 ? "over a thousand" : "less then 1000";
 pagesRange;
+
+// Arrow function
+
+const getYear = (str) => {
+  return str.split("-")[0];
+};
+
+console.log(getYear(publicationDate));
