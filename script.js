@@ -145,6 +145,7 @@ function getBook(id) {
 
 // Destructuring
 
+/*
 const book = getBook(3);
 book;
 
@@ -175,27 +176,21 @@ const updatedBook = {
 };
 updatedBook;
 
-//Template literals
-const summary = `New book here - ${title} and it is a ${pages}-page long book, was written by ${author} and published in ${
-  publicationDate.split("-")[0]
-}`;
-summary;
+// function getYear(str) {
+//   return str.split("-")[0];
+// }
 
-//Ternary operator
-
-const pagesRange = pages > 100 ? "over a thousand" : "less then 1000";
-pagesRange;
-
-// Arrow function
-
-const getYear = (str) => {
-  return str.split("-")[0];
-};
-
+const getYear = (str) => str.split("-")[0];
 console.log(getYear(publicationDate));
 
-//Short-circutts operators
-//&& if first value is false - it returns first value and doesnt go further
+const summary = `${title}, a ${pages}-page long book, was written by ${author} and published in ${getYear(
+  publicationDate
+)}. The book has ${hasMovieAdaptation ? "" : "not"} been adapted as a movie`;
+summary;
+
+const pagesRange = pages > 1000 ? "over a thousand" : "less than 1000";
+pagesRange;
+console.log(`The book has ${pagesRange} pages`);
 
 console.log(true && "Some string");
 console.log(false && "Some string");
@@ -220,11 +215,45 @@ spanishTranslation;
 // const count = book.reviews.librarything.reviewsCount ?? "no data";
 // count;
 
-/**Optional chaining */
 function getTotalReviewCount(book) {
-  const goodreads = book.reviews.goodreads?.reviewsCount;
-  const librarything = book.reviews.librarything?.reviewscount ?? 0;
+  const goodreads = book.reviews?.goodreads?.reviewsCount;
+  const librarything = book.reviews?.librarything?.reviewsCount ?? 0;
+  librarything;
   return goodreads + librarything;
 }
 
 console.log(getTotalReviewCount(book));
+*/
+
+/*
+function getTotalReviewCount(book) {
+  const goodreads = book.reviews?.goodreads?.reviewsCount;
+  const librarything = book.reviews?.librarything?.reviewsCount ?? 0;
+  librarything;
+  return goodreads + librarything;
+}
+console.log(getTotalReviewCount(book));
+
+/**Map(); method in JS */
+function getTotalReviewCount(book) {
+  const goodreads = book.reviews?.goodreads?.reviewsCount;
+  const librarything = book.reviews?.librarything?.reviewsCount ?? 0;
+  librarything;
+  return goodreads + librarything;
+}
+
+const books = getBooks();
+books;
+const x = [1, 2, 3, 4, 5].map((el) => el * 2);
+x;
+
+const titles = books.map((book) => book.title);
+titles;
+
+const essentialData = books.map((book) => ({
+  title: book.title,
+  author: book.author,
+  reviewsCount: getTotalReviewCount(book),
+}));
+
+essentialData;
