@@ -270,5 +270,13 @@ const adventureBooks = books
 adventureBooks;
 
 //The Aray Reduce() method in JS
-const pagesAllBooks = books.reduce((acc, book) => acc + book.pages, 0);
+const pagesAllBooks = books.reduce((sum, book) => sum + book.pages, 0);
 pagesAllBooks;
+
+//The Array sort() method
+const arr = [3, 7, 1, 9, 6];
+const sorted = arr.slice().sort((a, b) => a - b); //sorting in ascend order
+sorted;
+
+const sortedByPages = books.slice().sort((a, b) => b.pages - a.pages);
+sortedByPages;
